@@ -1,0 +1,30 @@
+
+.icone{
+   border: 2px solid #99ffd6;
+   border-left: 6px solid #db4dff;
+   border-bottom: 6px solid #db4dff;
+   border-radius: 40px;  
+   width: 250px;
+   height: 250px; 
+}
+
+.icone:hover{
+    border: 2px solid  #b366ff;
+    border-left: 6px solid  #b366ff;
+    border-bottom: 6px solid  #b366ff;
+    border-radius: 40px;  
+    width: 280px; 
+    height: 280px;
+ }
+
+.form{
+  
+  /*  border-left: 6px solid  #66b5ff;
+    border-bottom: 6px solid  #66b5ff; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 40px;
+    background: #cce6ff;
+    padding: 50px;
+}
