@@ -82,4 +82,55 @@
    
 
 
+.icone{
+   border: 2px solid #99ffd6;
+   border-left: 6px solid #db4dff;
+   border-bottom: 6px solid #db4dff;
+   border-radius: 40px;  
+   width: 250px;
+   height: 250px; 
+}
+
+.icone:hover{
+    border: 2px solid  #b366ff;
+    border-left: 6px solid  #b366ff;
+    border-bottom: 6px solid  #b366ff;
+    border-radius: 40px;  
+    width: 280px; 
+    height: 280px;
+ }
+
+.form{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 40px;
+    background: #cce6ff;
+    padding: 50px;
+}
+
+
+.d-count{
+   background-color: #cce6ff;
+   height: 100px;
+   width: 300px;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   border-radius: 12px;
+}
+
+.d-count:hover{
+   background-color: #d8bef3;
+}
+
+.d-count p{
+   font-size: 18px;
+   font-weight: 500;
+}
+
+.v-right{
+   text-align: right;
+}
+
 /*# sourceMappingURL=/frontend.e31bb0bc.css.map */

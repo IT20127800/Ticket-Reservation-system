@@ -10,6 +10,7 @@ const app = express();
 
 //import route
 const GroupRoutes = require('./Routes/GroupRegister');
+const BookingRoutes = require('./Routes/TicketBooking');
 
 
 
@@ -20,7 +21,7 @@ app.use(cors());
 
 
 app.use(GroupRoutes);
-
+app.use(BookingRoutes);
 
 
 
