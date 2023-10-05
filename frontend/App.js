@@ -18,7 +18,7 @@ export default class App extends Component{
     return (
       <BrowserRouter>
         <div>
-            {/* <Logo/> */}
+            <Logo/>
             <Nav/>
             {/*pamitha */}
          
@@ -27,7 +27,7 @@ export default class App extends Component{
             
  
             
-            <Route path="/booking"  exact component={Bookingticket}></Route>
+              <Route path="/booking/:id"  exact component={Bookingticket}></Route>
               <Route path="/bookingview"  exact component={BookingView}></Route>
               <Route path="/bookingupdate/:id"  exact component={Bookingupdate}></Route>
 

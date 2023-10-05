@@ -57,14 +57,14 @@ onDelete = (id, date) => {
     // Calculate the number of days
     const daysDiff = timeDiff / (1000 * 3600 * 24);
 
-    if (daysDiff >= 5) {
+    // if (daysDiff >= 5) {
       axios.delete(`https://localhost:7097/api/booking/${id}`).then((res) => {
         alert("Delete Successfully");
         this.retrivePosts();
       });
-    } else {
-      alert("Cannot delete booking, must be at least 5 days in advance.");
-    }
+    // } else {
+    //   alert("Cannot delete booking, must be at least 5 days in advance.");
+    // }
   };
   
 

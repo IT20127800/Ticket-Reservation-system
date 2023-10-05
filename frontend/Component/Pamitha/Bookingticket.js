@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 import "./CSS/notice.css";
 
@@ -9,19 +10,23 @@ export default function Bookingticket() {
 
   const history = useHistory();
 
+  const { id } = useParams();
+
   const [trainName, setname] = useState("");
   const [sheduledate, setdate] = useState("");
-  const [sheduletime, settime] = useState("");
+  const [sheduletime, settime] = useState("5.00pm");
   const [quentity, setquentity] = useState("");
-  const [price, setprice] = useState("");
+  const [price, setprice] = useState("100");
   const [trainID, settrainID] = useState("");
-  // const [total, settotal] = useState(quentity * price);
+  const [clientname, setcname] = useState("");
+  const [NIC, setnic] = useState("");
 
   const [recordCount, setRecordCount] = useState(null);
   const [maxcount] = useState(6);
 
   useEffect(() => {
     fetchRecordCount();
+    // fetchTrain();
   }, []);
 
   // const fetchRecordCount = () => {
@@ -53,6 +58,23 @@ export default function Bookingticket() {
   }
 
 
+  useEffect(() => {
+    axios.get(`https://localhost:7097/api/train/${id}`)
+      .then((res) => {
+        if (res.data) {
+          settrainID(res.data.trainID);
+          setname(res.data.trainName);
+          setdate(res.data.schedule.departureTime)
+          console.log(res.data)
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching record count:', error);
+      });
+  }, [id]);
+
+  console.log(sheduledate)
+
 
 
   function sendData() {
@@ -62,7 +84,9 @@ export default function Bookingticket() {
       sheduledate,
       sheduletime,
       quentity,
-      price
+      price,
+      clientname,
+      NIC
      
     };
 
@@ -70,7 +94,7 @@ export default function Bookingticket() {
 
     //  console.log(nquentity);
 
-    if (quentity <= 4) {
+    // if (quentity <= 4) {
       // if(maxcount > (recordCount + quentity - 1)){
       axios
         .post("https://localhost:7097/api/booking", newBook)
@@ -84,9 +108,9 @@ export default function Bookingticket() {
       // }else{
       //   alert("Enough Seat are not available....");
       // }
-    } else {
-      alert("Quentity is max 4");
-    }
+    // } else {
+    //   alert("Quentity is max 4");
+    // }
   }
 
   const remainingSeats = maxcount - recordCount;
@@ -139,7 +163,14 @@ export default function Bookingticket() {
           <div class="col">
             <form onSubmit={sendData} className="form shadow-lg p-4 mb-5 ">
               <center>
-              <label style={{ fontSize: "20px" }}>Enter train ID : </label>
+
+                <h2>Train Details</h2>
+
+                <p>TrainID : {trainID}</p>
+                <p>TrainName : {trainName}</p>
+                <p>Schedule Date : {sheduledate}</p>
+                <p>One Ticket Price : {price}</p>
+              {/* <label style={{ fontSize: "20px" }}>Enter train ID : </label>
                 <br />
                 <input
                   type="text"
@@ -185,12 +216,12 @@ export default function Bookingticket() {
                     setdate(e.target.value);
                   }}
                 />
-                <br />
+                <br /> */}
 
-                <label style={{ fontSize: "20px" }}>Enter time : </label>
+                <label style={{ fontSize: "20px" }}>Enter Person Name : </label>
                 <br />
                 <input
-                  type="time"
+                  type="text"
                   name="editor"
                   style={{
                     borderRadius: "15px",
@@ -198,13 +229,14 @@ export default function Bookingticket() {
                     height: "40px",
                   }}
                   onChange={(e) => {
-                    settime(e.target.value);
+                    setcname(e.target.value);
                   }}
                 />
                   <br />
-                <label style={{ fontSize: "20px" }}>Enter Price : </label>
+                <label style={{ fontSize: "20px" }}>Enter NIC : </label>
                 <br />
-                <textarea
+                <input
+                type='number'
                   id="editor"
                   name="editor"
                   style={{
@@ -213,13 +245,14 @@ export default function Bookingticket() {
                     height: "40px",
                   }}
                   onChange={(e) => {
-                    setprice(e.target.value);
+                    setnic(e.target.value);
                   }}
                 />
   <br />
                 <label style={{ fontSize: "20px" }}>Enter quentity : </label>
                 <br />
-                <textarea
+                <input
+                type='number'
                   id="editor"
                   name="editor"
                   style={{

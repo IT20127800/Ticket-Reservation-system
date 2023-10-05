@@ -1,11 +1,11 @@
 import React from 'react'
-import logo from "./images/logo.png"
+import logo from "./images/trainlogo.webp"
 
 const Homepage = () => {
     return (
         <>
              <center>
-                <img src={logo} style={{width:"180px", height:"180px"}}/>
+                <img src={logo} style={{width:"220px", height:"220px"}}/>
             </center>
         </>
     )

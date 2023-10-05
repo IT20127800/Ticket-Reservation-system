@@ -37191,8 +37191,8 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Component/Pamitha/images/logo.png":[function(require,module,exports) {
-module.exports = "/logo.0a00803e.png";
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Component/Pamitha/images/trainlogo.webp":[function(require,module,exports) {
+module.exports = "/trainlogo.ec5c903f.webp";
 },{}],"Component/Pamitha/home.js":[function(require,module,exports) {
 "use strict";
 
@@ -37203,23 +37203,23 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _logo = _interopRequireDefault(require("./images/logo.png"));
+var _trainlogo = _interopRequireDefault(require("./images/trainlogo.webp"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Homepage = function Homepage() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("img", {
-    src: _logo.default,
+    src: _trainlogo.default,
     style: {
-      width: "180px",
-      height: "180px"
+      width: "220px",
+      height: "220px"
     }
   })));
 };
 
 var _default = Homepage;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./images/logo.png":"Component/Pamitha/images/logo.png"}],"Component/Pamitha/images/SLIIT.png":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./images/trainlogo.webp":"Component/Pamitha/images/trainlogo.webp"}],"Component/Pamitha/images/SLIIT.png":[function(require,module,exports) {
 module.exports = "/SLIIT.c84f2647.png";
 },{}],"Component/Pamitha/AdminHeader.js":[function(require,module,exports) {
 "use strict";
@@ -41891,6 +41891,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Bookingticket() {
   var history = (0, _reactRouterDom.useHistory)();
 
+  var _useParams = (0, _reactRouterDom.useParams)(),
+      id = _useParams.id;
+
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       trainName = _useState2[0],
@@ -41901,7 +41904,7 @@ function Bookingticket() {
       sheduledate = _useState4[0],
       setdate = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(""),
+  var _useState5 = (0, _react.useState)("5.00pm"),
       _useState6 = _slicedToArray(_useState5, 2),
       sheduletime = _useState6[0],
       settime = _useState6[1];
@@ -41911,7 +41914,7 @@ function Bookingticket() {
       quentity = _useState8[0],
       setquentity = _useState8[1];
 
-  var _useState9 = (0, _react.useState)(""),
+  var _useState9 = (0, _react.useState)("100"),
       _useState10 = _slicedToArray(_useState9, 2),
       price = _useState10[0],
       setprice = _useState10[1];
@@ -41919,20 +41922,29 @@ function Bookingticket() {
   var _useState11 = (0, _react.useState)(""),
       _useState12 = _slicedToArray(_useState11, 2),
       trainID = _useState12[0],
-      settrainID = _useState12[1]; // const [total, settotal] = useState(quentity * price);
+      settrainID = _useState12[1];
 
-
-  var _useState13 = (0, _react.useState)(null),
+  var _useState13 = (0, _react.useState)(""),
       _useState14 = _slicedToArray(_useState13, 2),
-      recordCount = _useState14[0],
-      setRecordCount = _useState14[1];
+      clientname = _useState14[0],
+      setcname = _useState14[1];
 
-  var _useState15 = (0, _react.useState)(6),
-      _useState16 = _slicedToArray(_useState15, 1),
-      maxcount = _useState16[0];
+  var _useState15 = (0, _react.useState)(""),
+      _useState16 = _slicedToArray(_useState15, 2),
+      NIC = _useState16[0],
+      setnic = _useState16[1];
+
+  var _useState17 = (0, _react.useState)(null),
+      _useState18 = _slicedToArray(_useState17, 2),
+      recordCount = _useState18[0],
+      setRecordCount = _useState18[1];
+
+  var _useState19 = (0, _react.useState)(6),
+      _useState20 = _slicedToArray(_useState19, 1),
+      maxcount = _useState20[0];
 
   (0, _react.useEffect)(function () {
-    fetchRecordCount();
+    fetchRecordCount(); // fetchTrain();
   }, []); // const fetchRecordCount = () => {
   //   axios.get('https://localhost:7097/api/booking')
   //     .then((res) => {
@@ -41961,6 +41973,20 @@ function Bookingticket() {
     });
   };
 
+  (0, _react.useEffect)(function () {
+    _axios.default.get("https://localhost:7097/api/train/".concat(id)).then(function (res) {
+      if (res.data) {
+        settrainID(res.data.trainID);
+        setname(res.data.trainName);
+        setdate(res.data.schedule.departureTime);
+        console.log(res.data);
+      }
+    }).catch(function (error) {
+      console.error('Error fetching record count:', error);
+    });
+  }, [id]);
+  console.log(sheduledate);
+
   function sendData() {
     var newBook = {
       trainID: trainID,
@@ -41968,24 +41994,26 @@ function Bookingticket() {
       sheduledate: sheduledate,
       sheduletime: sheduletime,
       quentity: quentity,
-      price: price
+      price: price,
+      clientname: clientname,
+      NIC: NIC
     }; // const nquentity = recordCount + quentity;
     //  console.log(nquentity);
+    // if (quentity <= 4) {
+    // if(maxcount > (recordCount + quentity - 1)){
 
-    if (quentity <= 4) {
-      // if(maxcount > (recordCount + quentity - 1)){
-      _axios.default.post("https://localhost:7097/api/booking", newBook).then(function () {
-        // alert("Booking Scussess");
-        history.push("/bookingview");
-      }).catch(function (err) {
-        alert(err);
-      }); // }else{
-      //   alert("Enough Seat are not available....");
-      // }
+    _axios.default.post("https://localhost:7097/api/booking", newBook).then(function () {
+      // alert("Booking Scussess");
+      history.push("/bookingview");
+    }).catch(function (err) {
+      alert(err);
+    }); // }else{
+    //   alert("Enough Seat are not available....");
+    // }
+    // } else {
+    //   alert("Quentity is max 4");
+    // }
 
-    } else {
-      alert("Quentity is max 4");
-    }
   }
 
   var remainingSeats = maxcount - recordCount;
@@ -42028,58 +42056,12 @@ function Bookingticket() {
   }, /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: sendData,
     className: "form shadow-lg p-4 mb-5 "
-  }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("label", {
+  }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("h2", null, "Train Details"), /*#__PURE__*/_react.default.createElement("p", null, "TrainID : ", trainID), /*#__PURE__*/_react.default.createElement("p", null, "TrainName : ", trainName), /*#__PURE__*/_react.default.createElement("p", null, "Schedule Date : ", sheduledate), /*#__PURE__*/_react.default.createElement("p", null, "One Ticket Price : ", price), /*#__PURE__*/_react.default.createElement("label", {
     style: {
       fontSize: "20px"
     }
-  }, "Enter train ID : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+  }, "Enter Person Name : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    id: "id",
-    style: {
-      borderRadius: "15px",
-      width: "400px",
-      height: "40px"
-    },
-    onChange: function onChange(e) {
-      settrainID(e.target.value);
-    }
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    style: {
-      fontSize: "20px"
-    }
-  }, "Enter train name : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    id: "name",
-    style: {
-      borderRadius: "15px",
-      width: "400px",
-      height: "40px"
-    },
-    onChange: function onChange(e) {
-      setname(e.target.value);
-    }
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    style: {
-      fontSize: "20px"
-    }
-  }, "Select date : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "date",
-    id: "name",
-    style: {
-      borderRadius: "15px",
-      width: "400px",
-      height: "40px",
-      padding: "10px"
-    },
-    onChange: function onChange(e) {
-      setdate(e.target.value);
-    }
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
-    style: {
-      fontSize: "20px"
-    }
-  }, "Enter time : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
-    type: "time",
     name: "editor",
     style: {
       borderRadius: "15px",
@@ -42087,13 +42069,14 @@ function Bookingticket() {
       height: "40px"
     },
     onChange: function onChange(e) {
-      settime(e.target.value);
+      setcname(e.target.value);
     }
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     style: {
       fontSize: "20px"
     }
-  }, "Enter Price : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("textarea", {
+  }, "Enter NIC : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "number",
     id: "editor",
     name: "editor",
     style: {
@@ -42102,13 +42085,14 @@ function Bookingticket() {
       height: "40px"
     },
     onChange: function onChange(e) {
-      setprice(e.target.value);
+      setnic(e.target.value);
     }
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
     style: {
       fontSize: "20px"
     }
-  }, "Enter quentity : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("textarea", {
+  }, "Enter quentity : "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "number",
     id: "editor",
     name: "editor",
     style: {
@@ -42188,17 +42172,16 @@ var BookingView = /*#__PURE__*/function (_Component) {
 
       var timeDiff = bookingDate.getTime() - today.getTime(); // Calculate the number of days
 
-      var daysDiff = timeDiff / (1000 * 3600 * 24);
+      var daysDiff = timeDiff / (1000 * 3600 * 24); // if (daysDiff >= 5) {
 
-      if (daysDiff >= 5) {
-        _axios.default.delete("https://localhost:7097/api/booking/".concat(id)).then(function (res) {
-          alert("Delete Successfully");
+      _axios.default.delete("https://localhost:7097/api/booking/".concat(id)).then(function (res) {
+        alert("Delete Successfully");
 
-          _this.retrivePosts();
-        });
-      } else {
-        alert("Cannot delete booking, must be at least 5 days in advance.");
-      }
+        _this.retrivePosts();
+      }); // } else {
+      //   alert("Cannot delete booking, must be at least 5 days in advance.");
+      // }
+
     });
 
     _this.state = {
@@ -42630,8 +42613,8 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_AdminHeader.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-        path: "/booking",
+      return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_home.default, null), /*#__PURE__*/_react.default.createElement(_AdminHeader.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+        path: "/booking/:id",
         exact: true,
         component: _Bookingticket.default
       }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -42691,7 +42674,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57447" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53043" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
