@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import "./CSS/notice.css";
 
 import train from "./images/Metro.png"
 
 export default function Bookingticket() {
+
+  const history = useHistory();
+
   const [trainName, setname] = useState("");
   const [sheduledate, setdate] = useState("");
   const [sheduletime, settime] = useState("");
@@ -62,15 +66,24 @@ export default function Bookingticket() {
      
     };
 
+    // const nquentity = recordCount + quentity;
+
+    //  console.log(nquentity);
+
     if (quentity <= 4) {
+      // if(maxcount > (recordCount + quentity - 1)){
       axios
         .post("https://localhost:7097/api/booking", newBook)
         .then(() => {
-          alert("Booking Scussess");
+          // alert("Booking Scussess");
+          history.push("/bookingview"); 
         })
         .catch((err) => {
           alert(err);
         });
+      // }else{
+      //   alert("Enough Seat are not available....");
+      // }
     } else {
       alert("Quentity is max 4");
     }
@@ -78,7 +91,7 @@ export default function Bookingticket() {
 
   const remainingSeats = maxcount - recordCount;
   const dCountStyle = {
-    backgroundColor: remainingSeats === 0 ? 'red' : ' ',
+    backgroundColor: remainingSeats <= 0 ? 'red' : ' ',
   };
 
   return (
@@ -112,7 +125,7 @@ export default function Bookingticket() {
     <br />
     <br />
         <p style={{color:"red"}}>
-           {remainingSeats === 0 ? 'No Seats are Available' : " "}
+           {remainingSeats <= 0 ? 'No Seats are Available' : " "}
         </p>
         <br />
     <br />

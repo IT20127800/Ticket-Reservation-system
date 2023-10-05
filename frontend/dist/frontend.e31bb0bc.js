@@ -41862,6 +41862,8 @@ exports.default = Bookingticket;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _axios = _interopRequireDefault(require("axios"));
 
 require("./CSS/notice.css");
@@ -41887,6 +41889,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Bookingticket() {
+  var history = (0, _reactRouterDom.useHistory)();
+
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       trainName = _useState2[0],
@@ -41965,14 +41969,20 @@ function Bookingticket() {
       sheduletime: sheduletime,
       quentity: quentity,
       price: price
-    };
+    }; // const nquentity = recordCount + quentity;
+    //  console.log(nquentity);
 
     if (quentity <= 4) {
+      // if(maxcount > (recordCount + quentity - 1)){
       _axios.default.post("https://localhost:7097/api/booking", newBook).then(function () {
-        alert("Booking Scussess");
+        // alert("Booking Scussess");
+        history.push("/bookingview");
       }).catch(function (err) {
         alert(err);
-      });
+      }); // }else{
+      //   alert("Enough Seat are not available....");
+      // }
+
     } else {
       alert("Quentity is max 4");
     }
@@ -41980,7 +41990,7 @@ function Bookingticket() {
 
   var remainingSeats = maxcount - recordCount;
   var dCountStyle = {
-    backgroundColor: remainingSeats === 0 ? 'red' : ' '
+    backgroundColor: remainingSeats <= 0 ? 'red' : ' '
   };
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("h1", null, "Ticket Booking Screen")), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
     class: "container text-center"
@@ -42003,7 +42013,7 @@ function Bookingticket() {
     style: {
       color: "red"
     }
-  }, remainingSeats === 0 ? 'No Seats are Available' : " "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
+  }, remainingSeats <= 0 ? 'No Seats are Available' : " "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
     class: "row"
   }, /*#__PURE__*/_react.default.createElement("div", {
     class: "col"
@@ -42114,7 +42124,7 @@ function Bookingticket() {
     class: "btn btn-primary"
   }, "Book"), /*#__PURE__*/_react.default.createElement("br", null)))))));
 }
-},{"react":"node_modules/react/index.js","axios":"node_modules/axios/index.js","./CSS/notice.css":"Component/Pamitha/CSS/notice.css","./images/Metro.png":"Component/Pamitha/images/Metro.png"}],"Component/Pamitha/images/train.png":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","axios":"node_modules/axios/index.js","./CSS/notice.css":"Component/Pamitha/CSS/notice.css","./images/Metro.png":"Component/Pamitha/images/Metro.png"}],"Component/Pamitha/images/train.png":[function(require,module,exports) {
 module.exports = "/train.a10074ba.png";
 },{}],"Component/Pamitha/BookingView.js":[function(require,module,exports) {
 "use strict";
@@ -42254,7 +42264,7 @@ var BookingView = /*#__PURE__*/function (_Component) {
           className: "row"
         }, /*#__PURE__*/_react.default.createElement("div", {
           className: "col v-left"
-        }, /*#__PURE__*/_react.default.createElement("p", null, "Train Code : ", notice.trainID), /*#__PURE__*/_react.default.createElement("p", null, "Train shedule Date : ", notice.sheduledate), /*#__PURE__*/_react.default.createElement("p", null, "One Ticket Price : ", notice.price), /*#__PURE__*/_react.default.createElement("p", null, "Tickets : ", notice.quentity)), /*#__PURE__*/_react.default.createElement("div", {
+        }, /*#__PURE__*/_react.default.createElement("b", null, "Train Code : "), /*#__PURE__*/_react.default.createElement("p", null, notice.trainID), /*#__PURE__*/_react.default.createElement("b", null, "Train shedule Date :"), /*#__PURE__*/_react.default.createElement("p", null, " ", notice.sheduledate), /*#__PURE__*/_react.default.createElement("b", null, "One Ticket Price : "), /*#__PURE__*/_react.default.createElement("p", null, notice.price), /*#__PURE__*/_react.default.createElement("b", null, "Tickets :"), /*#__PURE__*/_react.default.createElement("p", null, " ", notice.quentity)), /*#__PURE__*/_react.default.createElement("div", {
           className: "col"
         }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("img", {
           src: _train.default,
@@ -42264,7 +42274,7 @@ var BookingView = /*#__PURE__*/function (_Component) {
           }
         }))), /*#__PURE__*/_react.default.createElement("div", {
           className: "col v-right"
-        }, /*#__PURE__*/_react.default.createElement("p", null, "Train Name : ", notice.trainName), /*#__PURE__*/_react.default.createElement("p", null, "Train Shedule Time : ", notice.sheduletime), /*#__PURE__*/_react.default.createElement("p", null, "Total Price : ", notice.quentity * notice.price), /*#__PURE__*/_react.default.createElement("button", {
+        }, /*#__PURE__*/_react.default.createElement("b", null, "Train Name : "), /*#__PURE__*/_react.default.createElement("p", null, notice.trainName), /*#__PURE__*/_react.default.createElement("b", null, "Train Shedule Time :"), /*#__PURE__*/_react.default.createElement("p", null, " ", notice.sheduletime), /*#__PURE__*/_react.default.createElement("b", null, "Total Price :"), /*#__PURE__*/_react.default.createElement("p", null, " ", notice.quentity * notice.price), /*#__PURE__*/_react.default.createElement("button", {
           type: "button",
           className: "btn btn-warning",
           onClick: function onClick() {
@@ -42681,7 +42691,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62005" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57447" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

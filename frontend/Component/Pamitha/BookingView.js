@@ -93,10 +93,14 @@ onDelete = (id, date) => {
               <div style={{background:"#b3d1ff", width:"1300px", padding:"20px", border:"4px solid #3385ff", borderRadius:"20px"}}>
              <div className="row">
               <div className="col v-left">
-                <p>Train Code : {notice.trainID}</p>
-                <p>Train shedule Date : {notice.sheduledate}</p>
-                <p>One Ticket Price : { notice.price }</p>
-                <p>Tickets : {notice.quentity}</p>
+              
+                    <b>Train Code : </b><p>{notice.trainID}</p>
+           
+                    <b>Train shedule Date :</b><p> {notice.sheduledate}</p>
+             
+                    <b>One Ticket Price : </b><p>{ notice.price }</p>
+                    <b>Tickets :</b><p> {notice.quentity}</p>
+              
                 </div>
                 <div className="col">
                 <center>
@@ -104,11 +108,11 @@ onDelete = (id, date) => {
             </center>
                 </div>
                 <div className="col v-right">
-                <p>Train Name : {notice.trainName}</p>
-                <p>Train Shedule Time : {notice.sheduletime}</p>
-
-                <p>Total Price : {notice.quentity * notice.price }</p>
-
+           
+                <b>Train Name : </b><p>{notice.trainName}</p>
+                <b>Train Shedule Time :</b><p> {notice.sheduletime}</p>
+                <b>Total Price :</b><p> {notice.quentity * notice.price }</p>
+             
                 <button
                     type="button"
                     className="btn btn-warning"
